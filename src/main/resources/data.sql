@@ -1,0 +1,13 @@
+INSERT INTO ADDRESS
+VALUES (1, 'Warsaw');
+INSERT INTO ADDRESS
+VALUES (2, 'Cracow');
+INSERT INTO ADDRESS
+VALUES (3, 'Wroclaw');
+
+INSERT INTO CUSTOMER
+VALUES (1, 'Michal', 'Tumilowicz', 1);
+INSERT INTO CUSTOMER
+VALUES (2, 'Slawomir', 'Mrozek', 2);
+INSERT INTO CUSTOMER
+VALUES (3, null, 'Tumilowicz', 3);
