@@ -1,7 +1,6 @@
 package com.example.springdataqbe;
 
 import lombok.Builder;
-import lombok.ToString;
 import lombok.Value;
 
 import javax.persistence.Entity;
@@ -14,8 +13,7 @@ import javax.persistence.OneToOne;
 @Entity
 @Value
 @Builder
-@ToString
-public class Customer {
+class Customer {
     @Id
     Integer id;
     String firstName;
