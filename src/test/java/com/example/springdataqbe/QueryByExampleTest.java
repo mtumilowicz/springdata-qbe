@@ -12,6 +12,7 @@ import javax.persistence.EntityNotFoundException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.springframework.data.domain.ExampleMatcher.*;
 import static org.springframework.data.domain.ExampleMatcher.matching;
 
 /**
@@ -41,6 +42,28 @@ public class QueryByExampleTest {
         assertThat(customerRepository.findOne(customerExample).orElseThrow(EntityNotFoundException::new).getId(), 
                 is(1));
     }
+
+    @Test
+    public void matcher_endsWith_relationship() {
+//        given
+        Address address = Address.builder()
+                .city("saw")
+                .build();
+
+        Customer customer = Customer.builder()
+                .address(address)
+                .build();
+
+        ExampleMatcher matcher = matching()
+                .withIgnoreCase()
+                .withMatcher("address.city", GenericPropertyMatcher::endsWith);
+
+        Example<Customer> customerExample = Example.of(customer, matcher);
+
+//        expect
+        assertThat(customerRepository.findOne(customerExample).orElseThrow(EntityNotFoundException::new).getId(),
+                is(1));
+    }
     
     @Test
     public void defaultMatcher_field() {
@@ -61,8 +84,8 @@ public class QueryByExampleTest {
 //        given
         ExampleMatcher matcher = matching()
                 .withIgnoreCase()
-                .withMatcher("firstName", ExampleMatcher.GenericPropertyMatcher::startsWith)
-                .withMatcher("lastName", ExampleMatcher.GenericPropertyMatcher::endsWith);
+                .withMatcher("firstName", GenericPropertyMatcher::startsWith)
+                .withMatcher("lastName", GenericPropertyMatcher::endsWith);
 
         Customer customer = Customer.builder()
                 .firstName("m")
