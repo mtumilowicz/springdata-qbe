@@ -5,7 +5,7 @@ The main goal of this project is to explore basics of `Query By Example` API in
 _Reference_: https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#query-by-example
 
 # manual
-1. matching by non null fields
+1. matching with non null fields
     ```
     Customer customer = // init pattern fields
     
@@ -14,7 +14,7 @@ _Reference_: https://docs.spring.io/spring-data/jpa/docs/current/reference/html/
     customerRepository.findOne(customerExample)
     ```
 
-1. matching with null fields (remember to exclude `id` field - if it stays null the result 
+1. matching with null fields (remember to exclude `id` field - if it stays the result 
 will be empty)
     ```
     ExampleMatcher matcher = matching()
