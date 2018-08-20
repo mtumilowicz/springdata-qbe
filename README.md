@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/mtumilowicz/springdata-qbe.svg?branch=master)](https://travis-ci.com/mtumilowicz/springdata-qbe)
+
 # springdata-qbe
 The main goal of this project is to explore basics of `Query By Example` API in 
 `Spring Data` environment.
